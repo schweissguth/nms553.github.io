@@ -38,11 +38,11 @@
   <script>
 	$(function()
 	{
-	var sheetUrlA = 'https://spreadsheets.google.com/feeds/list/1CAyAdtlGMJVQVzqKae8Qk3kUUT4WsrxoDYLBu3w3GbY/1/public/full?alt=json';
-	$.getJSON(sheetUrlA, function(dataA)
+	var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1CAyAdtlGMJVQVzqKae8Qk3kUUT4WsrxoDYLBu3w3GbY/1/public/full?alt=json';
+	$.getJSON(sheetUrl, function(data)
 	{
-	 var entryA = dataA.feed.entry;
-	 console.log(entryA);
+	 var entry = data.feed.entry;
+	 console.log(entry);
     </script>
   <iframe src="https://docs.google.com/spreadsheets/d/1CAyAdtlGMJVQVzqKae8Qk3kUUT4WsrxoDYLBu3w3GbY/htmlembed?single=true&gid=1325894882&range=a21:f32&widget=false&chrome=false" width="100%" height="500" frameborder="0">
   
