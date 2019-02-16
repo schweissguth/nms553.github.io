@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      html,
+      body {
+        margin-left: 10px;
+      }
+
+      h3 a {
+        font-weight: normal;
+        color: Sienna;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+
+
+
+    <table id="table" border="1"></table><br>
+    <script>
+      $(function() {
+        var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1gPV1KpSUCEE-0OebVmyy2Fpn-xRd8CvS0gC3E8BwzHc/1/public/full?alt=json';
+        $.getJSON(sheetUrl, function(data) {
+          var entry = data.feed.entry;
+          console.log(entry);
+          entry.forEach(function(item, index) {
+            var x = document.getElementById("table");
+            x.innerHTML += '<tr><td nowrap>' + item.gsx$task.$t + '</td></tr>';
+
+          });
+        });
+      });
+
+    </script>
+    <br><br>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfSZ1PlLMMy7DZ6dcDnLWLcyvgpJdEuyzXpiTnIU0WmYwPdXw/formResponse" target="_self" id="bootstrapForm" method="POST">
+
+
+
+      <legend for="1903312169">Task</legend>
+      <div class="form-group">
+        <textarea id="688970287" name="entry.688970287" class="form-control"></textarea>
+      </div>
+
+
+      <input type="hidden" name="fvv" value="1">
+      <input type="hidden" name="fbzx" value="1284283036980352758">
+
+      <input type="hidden" name="pageHistory" value="0">
+
+      <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+
+  </body>
+
+</html>
