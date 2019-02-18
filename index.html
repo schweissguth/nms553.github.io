@@ -51,7 +51,7 @@
           console.log(entry);
           entry.forEach(function(item, index) {
             var x = document.getElementById("table");
-            x.innerHTML += '<tr><td nowrap><b>' + item.gsx$player.$t +
+            x.innerHTML += '<tr><td nowrap><b>' + item.gsx$player.$t + item.gsx$pts.$t +
               '</b></td><td nowrap>' + item.gsx$d1.$t + '</td><td nowrap>' + item.gsx$d2.$t + '</td><td nowrap>' + item.gsx$comment.$t + '</td></tr>';
 
           })
