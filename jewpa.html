@@ -28,20 +28,36 @@
     <a href="https://script.google.com/a/mst.edu/macros/s/AKfycbxQ8hndmXuLWXSBWCbjnVLBCNkkta2KF--MfzHqwpCFrfoVac4/exec">jewpa2</a>
 
 
-    <table id="table" border="1"></table><br>
+    <div id="div"></div><br>
     <script>
       $(function() {
-        var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1gPV1KpSUCEE-0OebVmyy2Fpn-xRd8CvS0gC3E8BwzHc/1/public/full?alt=json';
+        var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1gPV1KpSUCEE-0OebVmyy2Fpn-xRd8CvS0gC3E8BwzHc/7/public/full?alt=json';
         $.getJSON(sheetUrl, function(data) {
           var entry = data.feed.entry;
           console.log(entry);
+          var x = document.getElementById("div");
           entry.forEach(function(item, index) {
-            var x = document.getElementById("table");
-            x.innerHTML += '<tr><td nowrap>' + item.gsx$task.$t + '</td></tr>';
 
+            x.innerHTML += '<a href="#" id="' + item.gsx$id.$t + '" onclick="myFunction(\'' + item.gsx$id.$t + '\')">' + item.gsx$task.$t + '</a><br>';
           });
         });
       });
+
+      function myFunction(gsxid) {
+        var idgsx = document.getElementById("1054571296");
+        idgsx.value = gsxid;
+        var order = document.getElementById("529958228");
+        //   order.value = Date.now() - 1550983776068 - 299874;
+        order.value = Date.now()
+        var task = document.getElementById("688970287");
+        task.value = document.getElementById(gsxid).textContent;
+        document.getElementById("bootstrapForm").submit();
+      }
+
+      function addParams() {
+        var idgsx = document.getElementById("1054571296");
+        idgsx.value = Date.now() - 1550983776068 - 299874;
+      }
 
     </script>
 
@@ -55,17 +71,18 @@
       <legend for="1903312169">Task</legend>
       <div class="form-group">
         <textarea id="688970287" name="entry.688970287" class="form-control"></textarea>
-        
+
       </div>
 
 
-      <input type="hidden" id="1054571296" name="entry.1054571296" value="gerp">
+      <input id="529958228" type="hidden" name="entry.529958228" class="form-control">
+      <input id="1054571296" type="hidden" name="entry.1054571296" class="form-control">
       <input type="hidden" name="fvv" value="1">
       <input type="hidden" name="fbzx" value="1284283036980352758">
 
       <input type="hidden" name="pageHistory" value="0">
 
-      <input class="btn btn-primary" type="submit" value="Submit">
+      <input onclick="addParams()" type="submit" value="Submit">
     </form>
 
     <script>
@@ -87,7 +104,7 @@
       })
 
     </script>
-<br><br>
+    <br><br>
     <a href="https://docs.google.com/spreadsheets/d/1gPV1KpSUCEE-0OebVmyy2Fpn-xRd8CvS0gC3E8BwzHc/edit#gid=1122416897">Admin</a>
   </body>
 
