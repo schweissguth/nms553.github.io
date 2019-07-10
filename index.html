@@ -55,8 +55,27 @@
           console.log(entry);
           entry.forEach(function(item, index) {
             var x = document.getElementById("table");
-            x.innerHTML += '<tr><td nowrap><b>' + item.gsx$player.$t + '</b> <small>(' + item.gsx$pts.$t + ')</small>' +
-              '</td><td nowrap>' + item.gsx$d1.$t + '</td><td nowrap>' + item.gsx$d2.$t + '</td><td nowrap><small>' + item.gsx$comment.$t + '</small></td></tr>';
+            var tr = document.createElement("TR");
+            var td1 = document.createElement("TD");
+            var td2 = document.createElement("TD");
+            var td3 = document.createElement("TD");
+            var td4 = document.createElement("TD");
+            td1.innerHTML = '<b>' + item.gsx$player.$t + ' </b> <small>(' + item.gsx$pts.$t + ')</small>';
+            tr.appendChild(td1);
+            td1.setAttribute("nowrap", true):
+            td2.innerHTML = item.gsx$d1.$t;
+            td2.setAttribute("nowrap", true):
+            tr.appendChild(td2);
+            td3.innerHTML = item.gsx$d2.$t;
+            td3.setAttribute("nowrap", true):
+            tr.appendChild(td3);
+            td4.innerHTML = '<small>' + item.gsx$comment.$t + '</small>';
+            td4.setAttribute("nowrap", true):
+            tr.appendChild(td4);
+            if (index%2 == 1) {
+              tr.setAttribute("bgcolor", "#tr.setAttribute("bgcolor", "#E7FFD0");");
+            }
+            table.appendChild(tr);
 
           })
         });
