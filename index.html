@@ -17,6 +17,8 @@
       }
       
       red {color: red;}
+      
+      small {font-size: .75em;}
 
     </style>
 
@@ -50,8 +52,8 @@
           console.log(entry);
           entry.forEach(function(item, index) {
             var x = document.getElementById("table");
-            x.innerHTML += '<tr><td nowrap><b>' + item.gsx$player.$t + '</b> (' + item.gsx$pts.$t + ')' +
-              '</td><td nowrap>' + item.gsx$d1.$t + '</td><td nowrap>' + item.gsx$d2.$t + '</td><td nowrap>' + item.gsx$comment.$t + '</td></tr>';
+            x.innerHTML += '<tr><td nowrap><b>' + item.gsx$player.$t + '</b> <small>(' + item.gsx$pts.$t + ')</small>' +
+              '</td><td nowrap>' + item.gsx$d1.$t + '</td><td nowrap>' + item.gsx$d2.$t + '</td><td nowrap><small>' + item.gsx$comment.$t + '</small></td></tr>';
 
           })
         });
