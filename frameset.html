@@ -1,16 +1,20 @@
+
 <html> 
   <head> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script> 
     $(function(){
-      $("#includedContent").load("https://docs.google.com/spreadsheets/d/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/htmlembed?single=true&gid=0&range=a1:f66&widget=false&chrome=false"); 
+      $("#includedContent").load("https://docs.google.com/spreadsheets/d/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/htmlembed?single=true&gid=0&range=a1:g66&widget=false&chrome=false"); 
     });
 
     
     </script> 
   </head> 
 
-  <body> 
+  <body id="body"> 
+  <h1>
+  Jewpa
+  </h1>
      <div id="includedContent"></div>
      <script>
 var timesRun = 0;
@@ -32,6 +36,13 @@ var divij = document.getElementsByTagName("th");
 for (ij = 0; ij < divij.length; ij++) { 
   divij[ij].setAttribute("style", "display:none;");
 }
+
+var uuu;
+var divuu = document.getElementsByTagName("table");
+for (uuu = 0; uuu < divuu.length; uuu++) { 
+  divuu[uuu].setAttribute("width", "100%");
+}
+
 }, 500);
 
 var intervalId = setInterval(function(){
