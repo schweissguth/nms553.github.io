@@ -43,6 +43,24 @@ for (ij = 0; ij < divij.length; ij++) {
   divij[ij].setAttribute("style", "display:none;");
 }
 
+var o;
+var divo = document.getElementsByTagName("tr");
+for (o = 0; o < divo.length; o++) { 
+  divo[o].style.height = "1px"
+}
+
+var p;
+var divp = document.getElementsByTagName("td");
+for (p = 0; p < divp.length; p++) { 
+  divp[p].style.height = "1px"
+}
+
+var q;
+var divq = document.getElementsByTagName("div");
+for (q = 0; q < divq.length; q++) { 
+  divq[q].style.height = ""
+}
+
 
 }, 500);
 
