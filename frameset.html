@@ -9,13 +9,18 @@
 
     
     </script> 
+    <style>
+    html, body {
+
+    margin: auto;
+    </style>
   </head> 
 
   <body id="body"> 
   <h1>
   Jewpa
   </h1>
-     <div id="includedContent"></div>
+     <div id="includedContent" align="center"></div>
      <script>
 var timesRun = 0;
 var interval = setInterval(function(){
@@ -37,17 +42,10 @@ for (ij = 0; ij < divij.length; ij++) {
   divij[ij].setAttribute("style", "display:none;");
 }
 
-var uuu;
-var divuu = document.getElementsByTagName("table");
-for (uuu = 0; uuu < divuu.length; uuu++) { 
-  divuu[uuu].setAttribute("width", "100%");
-}
 
 }, 500);
 
-var intervalId = setInterval(function(){
-          clearInterval(intervalId);
-                 }, 000);
+
      </script>
   </body> 
 </html>
