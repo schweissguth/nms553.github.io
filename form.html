@@ -105,15 +105,8 @@ $('#bootstrapForm').submit(function (event) {
             td1.innerHTML = '<b>' + item.gsx$timestamp.$t + ' </b> <small>(' + item.gsx$name.$t + ')</small>';
             td1.setAttribute("nowrap", "true");
             tr.appendChild(td1);
-            td2.innerHTML = item.gsx$driver1.$t;
-            td2.setAttribute("nowrap", "true");
-            tr.appendChild(td2);
-            td3.innerHTML = item.gsx$driver2.$t;
-            td3.setAttribute("nowrap", "true");
-            tr.appendChild(td3);
-            td4.innerHTML = '<small>' + item.gsx$trashtalk.$t + '</small>';
-            td4.setAttribute("nowrap", "true");
-            tr.appendChild(td4);
+
+
             if (index % 2 == 1) {
               tr.setAttribute("bgcolor", "#E7FFD0");
             }
