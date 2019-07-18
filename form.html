@@ -91,7 +91,7 @@ $('#bootstrapForm').submit(function (event) {
     <a style="font-size: 0.75em;" href="https://github.com/nms553/nms553.github.io">Admin</a><br>
     <script>
       $(function() {
-        var sheetUrl = 'https://spreadsheets.google.com/feeds/list/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/3/public/full?alt=json';
+        var sheetUrl = 'https://spreadsheets.google.com/feeds/list/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/4/public/full?alt=json';
         $.getJSON(sheetUrl, function(data) {
           var entry = data.feed.entry;
           console.log(entry);
@@ -105,6 +105,15 @@ $('#bootstrapForm').submit(function (event) {
             td1.innerHTML = '<b>' + item.gsx$timestamp.$t + ' </b> <small>(' + item.gsx$name.$t + ')</small>';
             td1.setAttribute("nowrap", "true");
             tr.appendChild(td1);
+            td2.innerHTML = item.gsx$driver1.$t;
+            td2.setAttribute("nowrap", "true");
+            tr.appendChild(td2);
+            td3.innerHTML = item.gsx$driver2.$t;
+            td3.setAttribute("nowrap", "true");
+            tr.appendChild(td3);
+            td4.innerHTML = '<small>' + item.gsx$trashtalk.$t + '</small>';
+            td4.setAttribute("nowrap", "true");
+            tr.appendChild(td4);
 
 
             if (index % 2 == 1) {
