@@ -4,6 +4,7 @@
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -85,6 +86,45 @@ $('#bootstrapForm').submit(function (event) {
     })
 })
 </script>
+      
+    <table id="table" border="1" style="border-collapse: collapse;"></table><br>
+    <a style="font-size: 0.75em;" href="https://github.com/nms553/nms553.github.io">Admin</a><br>
+    <script>
+      $(function() {
+        var sheetUrl = 'https://spreadsheets.google.com/feeds/list/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/1/public/full?alt=json';
+        $.getJSON(sheetUrl, function(data) {
+          var entry = data.feed.entry;
+          console.log(entry);
+          entry.forEach(function(item, index) {
+            var x = document.getElementById("table");
+            var tr = document.createElement("TR");
+            var td1 = document.createElement("TD");
+            var td2 = document.createElement("TD");
+            var td3 = document.createElement("TD");
+            var td4 = document.createElement("TD");
+            td1.innerHTML = '<b>' + item.gsx$player.$t + ' </b> <small>(' + item.gsx$pts.$t + ')</small>';
+            td1.setAttribute("nowrap", "true");
+            tr.appendChild(td1);
+            td2.innerHTML = item.gsx$d1.$t;
+            td2.setAttribute("nowrap", "true");
+            tr.appendChild(td2);
+            td3.innerHTML = item.gsx$d2.$t;
+            td3.setAttribute("nowrap", "true");
+            tr.appendChild(td3);
+            td4.innerHTML = '<small>' + item.gsx$comment.$t + '</small>';
+            td4.setAttribute("nowrap", "true");
+            tr.appendChild(td4);
+            if (index % 2 == 1) {
+              tr.setAttribute("bgcolor", "#E7FFD0");
+            }
+            table.appendChild(tr);
+
+
+          })
+        });
+      });
+
+    </script>
 
 </body>
 
