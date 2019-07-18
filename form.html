@@ -25,7 +25,18 @@
     <fieldset>
         <legend for="77435402">Name</legend>
         <div class="form-group">
-            <input id="397249521" type="text" name="entry.397249521" class="form-control" >
+            <select id="397249521" type="text" name="entry.397249521" class="form-control" >
+            <option>Mike</option>
+            <option>Dave</option>
+            <option>Curt</option>
+            <option>Tim</option>
+            <option>Evan</option>
+            <option>Moore</option>
+            <option>Schriewer</option>
+            <option>Nick</option>
+            <option>Dean</option>
+            <option>Kurt P</option>
+            </select>
         </div>
     </fieldset>
 
@@ -114,18 +125,13 @@ $('#bootstrapForm').submit(function (event) {
             td4.innerHTML = '<small>' + item.gsx$trashtalk.$t + '</small>';
             td4.setAttribute("nowrap", "true");
             tr.appendChild(td4);
-
-
             if (index % 2 == 1) {
               tr.setAttribute("bgcolor", "#E7FFD0");
             }
             table.appendChild(tr);
-
-
           })
         });
       });
-
     </script>
 
 </body>
