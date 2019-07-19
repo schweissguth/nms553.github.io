@@ -21,9 +21,8 @@
 
 
       <a href="https://github.com/nms553/nms553.github.io/edit/master/form.html">Github</a><br>
-      <a href="https://docs.google.com/spreadsheets/d/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/edit#gid=2064364514">Spreadsheet</a><br>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5PlZJdSSzu5IR85NxDvOQm6P3ovJF6SmFhPL3DViyhn0KiA/viewform">Google Form</a><br>
-
+      <a href="https://docs.google.com/spreadsheets/d/1-zTKqE5BlXe8YcWCzVPqf6YoWQnkaco6w0Lmcy8lHmk/edit#gid=0">Spreadsheet</a><br>
+<!--  <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5PlZJdSSzu5IR85NxDvOQm6P3ovJF6SmFhPL3DViyhn0KiA/viewform">Google Form</a><br> -->
 
   <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net" target="dummyframe"
   action="https://script.google.com/macros/s/AKfycbxqHXpoG-KxSAJ6EgZQDTQtBuL8fsWIOymwvAw6TLDi1AIdsT8/exec">
@@ -68,6 +67,45 @@
     </div>
 
   </form>
+      
+          <table id="table" border="1" style="border-collapse: collapse;"></table><br>
+    <a style="font-size: 0.75em;" href="https://github.com/nms553/nms553.github.io">Admin</a><br>
+    <script>
+      $(function() {
+        var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1-zTKqE5BlXe8YcWCzVPqf6YoWQnkaco6w0Lmcy8lHmk/2/public/full?alt=json';
+        $.getJSON(sheetUrl, function(data) {
+          var entry = data.feed.entry;
+          console.log(entry);
+          entry.forEach(function(item, index) {
+            var x = document.getElementById("table");
+            var tr = document.createElement("TR");
+            var td1 = document.createElement("TD");
+            var td2 = document.createElement("TD");
+            var td3 = document.createElement("TD");
+            var td4 = document.createElement("TD");
+            td1.innerHTML = '<b>' + item.gsx$name.$t + ' </b> <small>(' + item.gsx$timestamp.$t + ')</small>';
+            td1.setAttribute("nowrap", "true");
+            tr.appendChild(td1);
+            td2.innerHTML = item.gsx$message.$t;
+            td2.setAttribute("nowrap", "true");
+            tr.appendChild(td2);
+            td3.innerHTML = item.gsx$email.$t;
+            td3.setAttribute("nowrap", "true");
+            tr.appendChild(td3);
+            td4.innerHTML = '<small>' + item.gsx$color.$t + '</small>';
+            td4.setAttribute("nowrap", "true");
+            tr.appendChild(td4);
+            if (index % 2 == 1) {
+              tr.setAttribute("bgcolor", "#E7FFD0");
+            }
+            table.appendChild(tr);
+
+
+          })
+        });
+      });
+
+    </script>
 
 <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display:none;"></iframe>
 
