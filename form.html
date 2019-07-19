@@ -1,74 +1,125 @@
-
-      
 <!doctype html>
+
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="contact form example">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <title>Contact Form Example</title>
-</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Contact Form Example</title>
+  </head>
 
-<body>
-  <h2 class="content-head is-center">Contact Us!</h2>
-  <aside>
-       <p>
-           We would <em>love</em> to hear from you! </p>
-           <p>Please use the <b><em>Contact Form</em></b>
-           to send us a message.
-       </p>
-   </aside>
+  <body>
+    <h2>Contact Us!</h2>
 
 
-      <a href="https://github.com/nms553/nms553.github.io/edit/master/form.html">Github</a><br>
-      <a href="https://docs.google.com/spreadsheets/d/1-zTKqE5BlXe8YcWCzVPqf6YoWQnkaco6w0Lmcy8lHmk/edit#gid=0">Spreadsheet</a><br>
-      <a href="https://jsfiddle.net/xoy3dqk2/" target="_blank">JS FIddle</a><br> -->
+    <a href="https://github.com/nms553/nms553.github.io/edit/master/form.html">Github</a><br>
+    <a href="https://docs.google.com/spreadsheets/d/1-zTKqE5BlXe8YcWCzVPqf6YoWQnkaco6w0Lmcy8lHmk/edit#gid=0">Spreadsheet</a><br>
+    <a href="https://jsfiddle.net/xoy3dqk2/" target="_blank">JS FIddle</a><br>
 
-  <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net" target="dummyframe"
-  action="https://script.google.com/macros/s/AKfycbxqHXpoG-KxSAJ6EgZQDTQtBuL8fsWIOymwvAw6TLDi1AIdsT8/exec">
-    <!-- change the form action to your script url -->
+    <form method="POST" target="dummyframe" action="https://script.google.com/macros/s/AKfycbxqHXpoG-KxSAJ6EgZQDTQtBuL8fsWIOymwvAw6TLDi1AIdsT8/exec">
+      <!-- change the form action to your script url -->
+      <br><br>
 
-    <div class="form-elements">
-      <fieldset class="pure-group">
-        <label for="name">Name: </label>
-        <input id="name" name="name" placeholder="What your Mom calls you" />
-      </fieldset>
+      <select id="name" name="name">
+             <option disabled selected>Player</option>
+          <option>Dean</option>
+<option>Mike</option>
+<option>Dave</option>
+<option>Nick</option>
+<option>Kurt P</option>
+<option>Curt</option>
+<option>Schriewer</option>
+<option>Moore</option>
+<option>Tim</option>
+<option>Evan</option>
 
-      <fieldset class="pure-group">
-        <label for="message">Message: </label>
-        <textarea id="message" name="message" rows="10"
-        placeholder="Tell us what's on your mind..."></textarea>
-      </fieldset>
+          </select>
 
-      <fieldset class="pure-group">
-        <label for="email"><em>Your</em> Email Address:</label>
-        <input id="email" name="email" placeholder="your.name@email.com"/>
-      </fieldset>
+      <br><br>
 
-      <fieldset class="pure-group">
-        <label for="color">Favourite Color: </label>
-        <input id="color" name="color" placeholder="green" />
-      </fieldset>
 
-      <fieldset class="pure-group honeypot-field">
-        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
-        <input id="honeypot" type="text" name="honeypot" value="" />
-      </fieldset>
+      <select id="message" name="message">
+             <option disabled selected>Driver 1</option>
+            <option>Joey Logano</option>
+<option>Kevin Harvick</option>
+<option>Denny Hamlin</option>
+<option>Kyle Busch</option>
+<option>Brad Keselowski</option>
+<option>Martin Truex Jr.</option>
+<option>Kurt Busch</option>
+<option>Chase Elliott</option>
+<option>Alex Bowman</option>
+<option>Aric Almirola</option>
+<option>--------------------------------------</option>
+<option>Ryan Blaney</option>
+<option>William Byron</option>
+<option>Kyle Larson</option>
+<option>Clint Bowyer</option>
+<option>Jimmie Johnson</option>
+<option>Erik Jones</option>
+<option>Ryan Newman</option>
+<option>Daniel Suarez</option>
+<option>Ricky Stenhouse Jr.</option>
+<option>Austin Dillon</option>
+<option>Tyler Reddick</option>
+<option>Ryan Preece</option>
+<option>Paul Menard</option>
+<option>Chris Buescher</option>
+<option>Daniel Hemric</option>
+<option>Bubba Wallace</option>
+            
+          </select>
 
-      <button class="button-success pure-button button-xlarge">
-        <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
-    </div>
+      <br><br>
 
-    <!-- Customise the Thankyou Message People See when they submit the form: -->
-    <div class="thankyou_message">
-      <h2><em>Thanks</em> for contacting us!
-        We will get back to you soon!</h2>
-    </div>
+      <select id="email" name="email">
+       <option disabled selected>Driver 2</option>
+          <option>Joey Logano</option>
+<option>Kevin Harvick</option>
+<option>Denny Hamlin</option>
+<option>Kyle Busch</option>
+<option>Brad Keselowski</option>
+<option>Martin Truex Jr.</option>
+<option>Kurt Busch</option>
+<option>Chase Elliott</option>
+<option>Alex Bowman</option>
+<option>Aric Almirola</option>
+<option>--------------------------------------</option>
+<option>Ryan Blaney</option>
+<option>William Byron</option>
+<option>Kyle Larson</option>
+<option>Clint Bowyer</option>
+<option>Jimmie Johnson</option>
+<option>Erik Jones</option>
+<option>Ryan Newman</option>
+<option>Daniel Suarez</option>
+<option>Ricky Stenhouse Jr.</option>
+<option>Austin Dillon</option>
+<option>Tyler Reddick</option>
+<option>Ryan Preece</option>
+<option>Paul Menard</option>
+<option>Chris Buescher</option>
+<option>Daniel Hemric</option>
+<option>Bubba Wallace</option>
+          </select>
 
-  </form>
-      
-          <table id="table" border="1" style="border-collapse: collapse;"></table><br>
+      <br><br>
+
+      <input id="color" name="color" placeholder="Trashtalk" />
+
+      <br><br>
+
+
+      <input onclick="reload()" type="submit">
+      <br><br>
+
+
+
+    </form>
+
+    <table id="table" border="1" style="border-collapse: collapse;"></table><br>
     <a style="font-size: 0.75em;" href="https://github.com/nms553/nms553.github.io">Admin</a><br>
     <script>
       $(function() {
@@ -83,16 +134,17 @@
             var td2 = document.createElement("TD");
             var td3 = document.createElement("TD");
             var td4 = document.createElement("TD");
-            td1.innerHTML = '<b>' + item.gsx$name.$t;
+            td1.textContent = item.gsx$name.$t;
+            td1.style.fontWeight = "bold";
             td1.setAttribute("nowrap", "true");
             tr.appendChild(td1);
-            td2.innerHTML = item.gsx$message.$t;
+            td2.textContent = item.gsx$message.$t;
             td2.setAttribute("nowrap", "true");
             tr.appendChild(td2);
-            td3.innerHTML = item.gsx$email.$t;
+            td3.textContent = item.gsx$email.$t;
             td3.setAttribute("nowrap", "true");
             tr.appendChild(td3);
-            td4.innerHTML = '<small>' + item.gsx$color.$t + '</small>';
+            td4.textContent = item.gsx$color.$t;
             td4.setAttribute("nowrap", "true");
             tr.appendChild(td4);
             if (index % 2 == 1) {
@@ -105,9 +157,17 @@
         });
       });
 
+      function reload() {
+        setTimeout(function() {
+          location.reload();
+        }, 2000);
+
+      }
+
     </script>
 
-<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display:none;"></iframe>
+    <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display:none;"></iframe>
 
-</body>
+  </body>
+
 </html>
