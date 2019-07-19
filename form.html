@@ -1,130 +1,77 @@
-<!DOCTYPE html>
-<html>
 
+      
+<!doctype html>
+<html lang="en">
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="contact form example">
+  <title>Contact Form Example</title>
 </head>
+
 <body>
+  <h2 class="content-head is-center">Contact Us!</h2>
+  <aside>
+       <p>
+           We would <em>love</em> to hear from you! </p>
+           <p>Please use the <b><em>Contact Form</em></b>
+           to send us a message.
+       </p>
+   </aside>
+
 
       <a href="https://github.com/nms553/nms553.github.io/edit/master/form.html">Github</a><br>
       <a href="https://docs.google.com/spreadsheets/d/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/edit#gid=2064364514">Spreadsheet</a><br>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5PlZJdSSzu5IR85NxDvOQm6P3ovJF6SmFhPL3DViyhn0KiA/viewform">Google Form</a><br>
-      
-<form action=""
-      target="_self"
-      id="bootstrapForm"
-      method="POST">
-    <fieldset>
-        <h2>Junk<br><small></small></h2>
-    </fieldset>
 
 
-    <!-- Field type: "short" id: "774547916" -->
-    <fieldset>
-        <legend for="774547916">Name</legend>
-        <div class="form-group">
-            <input id="1814314834" type="text" name="entry.1814314834" class="form-control" >
-        </div>
-    </fieldset>
+  <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+  action="https://script.google.com/macros/s/AKfycbwMxYDrufp73bKdU8gMvxFDdHRuzcR4IKQUB33B7GqwyfyZS04/exec">
+    <!-- change the form action to your script url -->
 
+    <div class="form-elements">
+      <fieldset class="pure-group">
+        <label for="name">Name: </label>
+        <input id="name" name="name" placeholder="What your Mom calls you" />
+      </fieldset>
 
-    <!-- Field type: "short" id: "2137141704" -->
-    <fieldset>
-        <legend for="2137141704">Driver 1</legend>
-        <div class="form-group">
-            <input id="1379459311" type="text" name="entry.1379459311" class="form-control" >
-        </div>
-    </fieldset>
+      <fieldset class="pure-group">
+        <label for="message">Message: </label>
+        <textarea id="message" name="message" rows="10"
+        placeholder="Tell us what's on your mind..."></textarea>
+      </fieldset>
 
+      <fieldset class="pure-group">
+        <label for="email"><em>Your</em> Email Address:</label>
+        <input id="email" name="email" type="email" value=""
+        required placeholder="your.name@email.com"/>
+      </fieldset>
 
-    <!-- Field type: "short" id: "1473703383" -->
-    <fieldset>
-        <legend for="1473703383">Driver 2</legend>
-        <div class="form-group">
-            <input id="217461021" type="text" name="entry.217461021" class="form-control" >
-        </div>
-    </fieldset>
+      <fieldset class="pure-group">
+        <label for="color">Favourite Color: </label>
+        <input id="color" name="color" placeholder="green" />
+      </fieldset>
 
+      <fieldset class="pure-group honeypot-field">
+        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+        <input id="honeypot" type="text" name="honeypot" value="" />
+      </fieldset>
 
-    <!-- Field type: "short" id: "752155159" -->
-    <fieldset>
-        <legend for="752155159">Trashtalk</legend>
-        <div class="form-group">
-            <input id="928178116" type="text" name="entry.928178116" class="form-control" >
-        </div>
-    </fieldset>
+      <button class="button-success pure-button button-xlarge">
+        <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+    </div>
 
-    <input type="hidden" name="fvv" value="1">
-    <input type="hidden" name="fbzx" value="-5951678988305252541">
-    <!--
-        CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
-        This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
-        Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
-        We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
-    -->
-    <input type="hidden" name="pageHistory" value="0">
+    <!-- Customise the Thankyou Message People See when they submit the form: -->
+    <div class="thankyou_message" style="display:none;">
+      <h2><em>Thanks</em> for contacting us!
+        We will get back to you soon!</h2>
+    </div>
 
-    <input class="btn btn-primary" type="submit" value="Submit">
-</form>
+  </form>
 
-<script>
-$('#bootstrapForm').submit(function (event) {
-    event.preventDefault()
-    var extraData = {}
-    $('#bootstrapForm').ajaxSubmit({
-        data: extraData,
-        dataType: 'jsonp',  // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
-        error: function () {
-            // Submit of form should be successful but JSONP callback will fail because Google Forms
-            // does not support it, so this is handled as a failure.
-         //   alert('Form Submitted. Thanks.')
-            // You can also redirect the user to a custom thank-you page:
-             window.location = 'http://www.stupid-fast.com/form.html'
-        }
-    })
-})
-</script>
-      <br>
-    <table id="table" border="1" style="border-collapse: collapse;"></table><br>
-    <a style="font-size: 0.75em;" href="https://github.com/nms553/nms553.github.io">Admin</a><br>
-    <script>
-      $(function() {
-        var sheetUrl = 'https://spreadsheets.google.com/feeds/list/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/4/public/full?alt=json';
-        $.getJSON(sheetUrl, function(data) {
-          var entry = data.feed.entry;
-          console.log(entry);
-          entry.forEach(function(item, index) {
-            var x = document.getElementById("table");
-            var tr = document.createElement("TR");
-            var td1 = document.createElement("TD");
-            var td2 = document.createElement("TD");
-            var td3 = document.createElement("TD");
-            var td4 = document.createElement("TD");
-            td1.innerHTML = '<b>' + item.gsx$timestamp.$t + ' </b> <small>(' + item.gsx$name.$t + ')</small>';
-            td1.setAttribute("nowrap", "true");
-            tr.appendChild(td1);
-            td2.innerHTML = item.gsx$driver1.$t;
-            td2.setAttribute("nowrap", "true");
-            tr.appendChild(td2);
-            td3.innerHTML = item.gsx$driver2.$t;
-            td3.setAttribute("nowrap", "true");
-            tr.appendChild(td3);
-            td4.innerHTML = '<small>' + item.gsx$trashtalk.$t + '</small>';
-            td4.setAttribute("nowrap", "true");
-            tr.appendChild(td4);
-            if (index % 2 == 1) {
-              tr.setAttribute("bgcolor", "#E7FFD0");
-            }
-            table.appendChild(tr);
-          })
-        });
-      });
-    </script>
+  <!-- Submit the Form to Google Using "AJAX" -->
+  <script data-cfasync="false" src="form-submission-handler.js"></script>
+<!-- END -->
 
 </body>
-
-
 </html>
