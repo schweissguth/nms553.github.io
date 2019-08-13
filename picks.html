@@ -3,8 +3,8 @@
 
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <title>Stupid Fast NASCAR</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Stupid Fast NASCAR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="NASCAR fantasy website Stupid-Fast.com">
     <meta name="keywords" content="NASCAR">
   </head>
@@ -12,10 +12,10 @@
   <body>
     <br>
     <a href="https://www.stupid-fast.com/">Back to homepage</a><br>
-    
+
 
     <br>
-    <font color="red">I made some adjustments to this page.  Any issues let me know!</font><br>
+    <font color="red">I made some adjustments to this page. Any issues let me know!</font><br>
     (Trashtalk will be re-added later)
     <br><br><br>
 
@@ -32,40 +32,44 @@
       var players = ["Schriewer", "Mike", "Moore", "Dave", "Curt", "Tim", "Dean", "Evan", "Poepsel", "Nick"];
       var newarray0 = [];
       var toptenarray = [];
-      
+
       function validate(playr, drivr, indx) {
-            newarray0[indx] = playr;
-            var instances = newarray0.filter(word0 => word0 == playr);
+        newarray0[indx] = playr;
+        var instances = newarray0.filter(function(word0) {
+          return word0 == playr;
+        });
 
-            toptenarray[indx] = playr;
-            toptenarray.length = 10;
-            var topten = toptenarray.filter(word1 => word1 == playr);
+        toptenarray[indx] = playr;
+        toptenarray.length = 10;
+        var topten = toptenarray.filter(function(word1) {
+          return word1 == playr;
+        });
 
-            if (playr == "") {
-              newarray0[indx] = "";
-              toptenarray[indx] = "";
-            } else if (topten.length > 1) {
-              console.log(toptenarray);
-              newarray0[indx] = "";
-              toptenarray[indx] = "";
-              alert("Too many picks in top 10");
-              document.getElementById(indx).value = "";
-            } else if (instances.length > 2) {
-              newarray0[indx] = "";
-              toptenarray[indx] = "";
-              alert("Too many picks");
-              document.getElementById(indx).value = "";
-            } else if (instances.length == 2) {
-              var first = newarray0.indexOf(playr);
-              var second = newarray0.lastIndexOf(playr);
-              document.getElementsByName("name")[0].value = playr;
-              document.getElementsByName("message")[0].value = entry[first].gsx$drivers.$t;
-              document.getElementsByName("email")[0].value = entry[second].gsx$drivers.$t;
-              document.getElementById("form").submit();
-              alert("Picks submitted")
-            }
-          }
-      
+        if (playr == "") {
+          newarray0[indx] = "";
+          toptenarray[indx] = "";
+        } else if (topten.length > 1) {
+          console.log(toptenarray);
+          newarray0[indx] = "";
+          toptenarray[indx] = "";
+          alert("Too many picks in top 10");
+          document.getElementById(indx).value = "";
+        } else if (instances.length > 2) {
+          newarray0[indx] = "";
+          toptenarray[indx] = "";
+          alert("Too many picks");
+          document.getElementById(indx).value = "";
+        } else if (instances.length == 2) {
+          var first = newarray0.indexOf(playr);
+          var second = newarray0.lastIndexOf(playr);
+          document.getElementsByName("name")[0].value = playr;
+          document.getElementsByName("message")[0].value = entry[first].gsx$drivers.$t;
+          document.getElementsByName("email")[0].value = entry[second].gsx$drivers.$t;
+          document.getElementById("form").submit();
+          alert("Picks submitted")
+        }
+      }
+
       $(function() {
         var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1CAyAdtlGMJVQVzqKae8Qk3kUUT4WsrxoDYLBu3w3GbY/12/public/full?alt=json';
         $.getJSON(sheetUrl, function(data) {
@@ -93,7 +97,7 @@
               var option1 = document.createElement("option");
               option1.text = item1;
               if (item.gsx$players.$t == item1) {
-              option1.selected = "true"; 
+                option1.selected = "true";
               }
               select.appendChild(option1);
             });
@@ -104,7 +108,7 @@
           var tenthrow = document.getElementsByTagName("TR")[10];
           tenthrow.innerHTML = "<td colspan='3'><hr></td>";
         });
-        
+
       });
       var form = document.getElementById("form");
       var table = document.getElementById("table");
