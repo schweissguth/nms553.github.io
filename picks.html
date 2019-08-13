@@ -44,10 +44,16 @@
         var topten = toptenarray.filter(function(word1) {
           return word1 == playr;
         });
+        var first = newarray0.indexOf(playr);
+        var second = newarray0.lastIndexOf(playr);
 
         if (playr == "") {
           newarray0[indx] = "";
           toptenarray[indx] = "";
+          document.getElementsByName("name")[0].value = playr;
+          document.getElementsByName("message")[0].value = entry[first].gsx$drivers.$t;
+          document.getElementsByName("email")[0].value = entry[second].gsx$drivers.$t;
+          document.getElementById("form").submit();
         } else if (topten.length > 1) {
           console.log(toptenarray);
           newarray0[indx] = "";
@@ -60,8 +66,6 @@
           alert("Too many picks");
           document.getElementById(indx).value = "";
         } else if (instances.length == 2) {
-          var first = newarray0.indexOf(playr);
-          var second = newarray0.lastIndexOf(playr);
           document.getElementsByName("name")[0].value = playr;
           document.getElementsByName("message")[0].value = entry[first].gsx$drivers.$t;
           document.getElementsByName("email")[0].value = entry[second].gsx$drivers.$t;
