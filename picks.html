@@ -11,11 +11,11 @@
   </head>
 
   <body>
-    <br>
-    <a href="https://www.stupid-fast.com/">Back to homepage</a><br>
+  <a href="https://www.stupid-fast.com/"><img src="https://lh5.googleusercontent.com/VHx2YhJbF08rhdVwHzCO8EzWDAGaFsithJ4PONeGeKZ8cAu8iJL8f3Ne_WZDGEcHIYOmF-FIJcdYbg7XWHGDUbU_p18_rAfTSGeMuSk1kji9TNTwviXW9GGugjlQbcX8RV8"></a>
 
 
-    <br>
+
+    <br><br>
     <font color="red">I made some adjustments to this page. Any issues let me know!</font><br>
     (Trashtalk will be re-added later)
     <br><br><br>
@@ -33,11 +33,19 @@
       var newarray0 = [];
       var toptenarray = [];
 
-      function validate(playr, drivr, indx) {
+      function validate(playr, drivr, indx, tt) {
         document.getElementsByName("index")[0].value = indx;
         document.getElementsByName("player")[0].value = playr;
-        document.getElementsByName("trashtalk")[0].value = "";
+        document.getElementsByName("trashtalk")[0].value = tt;
+        var tt = document.getElementsByClassName(indx)[0];
+        tt.style.display = "";
         document.getElementById("form").submit();
+      }
+      
+      function trashtalk(className, value) {
+        var playa = document.getElementsByName("player")[0].value;
+        var driva = document.getElementsByName("index")[0].value;
+        validate(playa, driva, className, value);
       }
 
       $(function() {
@@ -61,7 +69,7 @@
             var option0 = document.createElement("option");
             select.appendChild(option0);
             select.name = item.gsx$drivers.$t;
-            select.setAttribute("onchange", "validate(this.value, this.name, this.id)");
+            select.setAttribute("onchange", "validate(this.value, this.name, this.id, '')");
             //create options
             players.forEach(function(item1, index1) {
               var option1 = document.createElement("option");
@@ -69,11 +77,18 @@
               if (item.gsx$players.$t == item1) {
                 option1.selected = "true";
               }
+            //add to dropdown menu  
               select.appendChild(option1);
             });
-
+            //add dropdown to second column
             cell1.appendChild(select);
-
+            //create Trashtalk inpuit field
+            var trashtalk = document.createElement("INPUT");
+            trashtalk.style.display = "none";
+            trashtalk.className = index + 2;
+            trashtalk.placeholder = "trashtalk";
+            trashtalk.setAttribute("onchange", "trashtalk(this.className, this.value)")
+            cell2.appendChild(trashtalk);
           });
           var tenthrow = document.getElementsByTagName("TR")[10];
           tenthrow.innerHTML = "<td colspan='3'><hr></td>";
@@ -84,12 +99,10 @@
       var table = document.getElementById("table");
 
     </script>
-    
-    <br>
-    <br>
-    <a target="_blank" href="https://script.google.com/d/165R7viTBypkyTYNavCDaflQHuV49C6e9lv4RaTODgV2jL3aEwh9bZQsT/edit?usp=sharing">Admin</a>
 
     <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display:none;"></iframe>
+    <br>
+     <a target="_blank" href="https://script.google.com/d/165R7viTBypkyTYNavCDaflQHuV49C6e9lv4RaTODgV2jL3aEwh9bZQsT/edit?usp=sharing">Admin</a>
 
   </body>
 
