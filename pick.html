@@ -7,8 +7,115 @@
     <meta name="description" content="NASCAR fantasy website Stupid-Fast.com">
     <meta name="keywords" content="NASCAR">
   </head>
-  <frameset rows="100%,*" border="0">
-    <frame src="https://script.google.com/macros/s/AKfycbzRVy9mpyg8MuFb1BM0nbUhu6GUiJ6T_yWyEK94rxb_fYR5eVM/exec" frameborder="0" />
-  </frameset>
+<body>
+  <!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <form id="form" name="myForm" action="https://script.google.com/macros/s/AKfycbxqHXpoG-KxSAJ6EgZQDTQtBuL8fsWIOymwvAw6TLDi1AIdsT8/exec" method="post" target="dummyframe">
+      <input type="hidden" name="name">
+      <input type="hidden" name="message">
+      <input type="hidden" name="email">
+      <input type="hidden" name="color" placeholder="trashtalk">
+    </form>
+
+    <table id="table" border="0"></table>
+
+    <script>
+      var players = ["Nick", "Schriewer", "Mike", "Moore", "Dean", "Curt", "Tim", "Dean", "Evan", "Poepsel"];
+      var newarray0 = [];
+      var toptenarray = [];
+      
+      function validate(playr, drivr, indx) {
+            newarray0[indx] = playr;
+            var instances = newarray0.filter(word0 => word0 == playr);
+
+            toptenarray[indx] = playr;
+            toptenarray.length = 10;
+            var topten = toptenarray.filter(word1 => word1 == playr);
+
+            if (playr == "") {
+              newarray0[indx] = "";
+              toptenarray[indx] = "";
+            } else if (topten.length > 1) {
+              console.log(toptenarray);
+              newarray0[indx] = "";
+              toptenarray[indx] = "";
+              alert("Too many picks in top 10");
+              document.getElementById(indx).value = "";
+            } else if (instances.length > 2) {
+              newarray0[indx] = "";
+              toptenarray[indx] = "";
+              alert("Too many picks");
+              document.getElementById(indx).value = "";
+            } else if (instances.length == 2) {
+              var first = newarray0.indexOf(playr);
+              var second = newarray0.lastIndexOf(playr);
+              document.getElementsByName("name")[0].value = playr;
+              document.getElementsByName("message")[0].value = entry[first].gsx$drivers.$t;
+              document.getElementsByName("email")[0].value = entry[second].gsx$drivers.$t;
+              document.getElementsByName("color")[0].value = "trashtalk";
+              document.getElementById("form").submit();
+              alert("Picks submitted")
+            }
+          }
+      
+      $(function() {
+        var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1-zTKqE5BlXe8YcWCzVPqf6YoWQnkaco6w0Lmcy8lHmk/5/public/full?alt=json';
+        $.getJSON(sheetUrl, function(data) {
+          entry = data.feed.entry;
+          console.log(entry);
+
+          entry.forEach(function(item, index) {
+            var row = table.insertRow();
+            var cell0 = row.insertCell(0);
+            var cell1 = row.insertCell(1);
+            var cell2 = row.insertCell(2);
+            cell0.innerHTML = item.gsx$drivers.$t;
+            //add to main array
+            newarray0[index] = item.gsx$players.$t;
+            toptenarray[index] = item.gsx$players.$t;
+            //create select dropdown
+            var select = document.createElement("select");
+            select.id = index;
+            var option0 = document.createElement("option");
+            select.appendChild(option0);
+            select.name = item.gsx$drivers.$t;
+            select.setAttribute("onchange", "validate(this.value, this.name, this.id)");
+            //create options
+            players.forEach(function(item1, index1) {
+              var option1 = document.createElement("option");
+              option1.text = item1;
+              if (item.gsx$players.$t == item1) {
+              option1.selected = "true"; 
+              }
+              select.appendChild(option1);
+            });
+
+            cell1.appendChild(select);
+
+          });
+          var tenthrow = document.getElementsByTagName("TR")[10];
+          tenthrow.innerHTML = "<td colspan='3'><hr></td>";
+        });
+        
+      });
+      var form = document.getElementById("form");
+      var table = document.getElementById("table");
+
+    </script>
+
+    <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display:none;"></iframe>
+
+  </body>
+
+</html>
+
+  </body>
 
 </html>
