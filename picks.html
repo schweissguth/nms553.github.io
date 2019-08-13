@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -20,10 +21,10 @@
     <br><br><br>
 
     <form id="form" name="myForm" action="https://script.google.com/macros/s/AKfycbwhlpFw2h-7mKHBabnRfgMf4k0qepj7KgVKyI6dTvsVrwiYbL4/exec" method="post" target="dummyframe">
-      <input type="hidden" name="name">
-      <input type="hidden" name="message">
-      <input type="hidden" name="email">
+      <input type="hidden" name="player">
+      <input type="hidden" name="index">
       <input type="hidden" name="color">
+      <input type="submit">
     </form>
 
     <table id="table" border="0"></table>
@@ -34,44 +35,10 @@
       var toptenarray = [];
 
       function validate(playr, drivr, indx) {
-        newarray0[indx] = playr;
-        var instances = newarray0.filter(function(word0) {
-          return word0 == playr;
-        });
-
-        toptenarray[indx] = playr;
-        toptenarray.length = 10;
-        var topten = toptenarray.filter(function(word1) {
-          return word1 == playr;
-        });
-        var first = newarray0.indexOf(playr);
-        var second = newarray0.lastIndexOf(playr);
-
-        if (playr == "") {
-          newarray0[indx] = "";
-          toptenarray[indx] = "";
-          document.getElementsByName("name")[0].value = playr;
-          document.getElementsByName("message")[0].value = entry[first].gsx$drivers.$t;
-          document.getElementsByName("email")[0].value = entry[second].gsx$drivers.$t;
-          document.getElementById("form").submit();
-        } else if (topten.length > 1) {
-          console.log(toptenarray);
-          newarray0[indx] = "";
-          toptenarray[indx] = "";
-          alert("Too many picks in top 10");
-          document.getElementById(indx).value = "";
-        } else if (instances.length > 2) {
-          newarray0[indx] = "";
-          toptenarray[indx] = "";
-          alert("Too many picks");
-          document.getElementById(indx).value = "";
-        } else if (instances.length == 2) {
-          document.getElementsByName("name")[0].value = playr;
-          document.getElementsByName("message")[0].value = entry[first].gsx$drivers.$t;
-          document.getElementsByName("email")[0].value = entry[second].gsx$drivers.$t;
-          document.getElementById("form").submit();
-          alert("Picks submitted")
-        }
+        document.getElementsByName("index")[0].value = indx;
+        document.getElementsByName("player")[0].value = playr;
+        document.getElementById("form").submit();
+        alert("done");
       }
 
       $(function() {
@@ -91,7 +58,7 @@
             toptenarray[index] = item.gsx$players.$t;
             //create select dropdown
             var select = document.createElement("select");
-            select.id = index;
+            select.id = index+2;
             var option0 = document.createElement("option");
             select.appendChild(option0);
             select.name = item.gsx$drivers.$t;
