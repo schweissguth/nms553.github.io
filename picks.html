@@ -9,7 +9,7 @@
     <meta name="keywords" content="NASCAR">
     <style>
       td {
-        height: 30px;
+        height: 40px;
       }
 
     </style>
@@ -70,6 +70,8 @@
             },
             "gsx$players": {
               $t: ""
+            }, "gsx$image": {
+              $t: "https://docs.google.com/uc?export=download&id=1aCqF32pokp2vDC7K37UlQ20u-cotKM2E"
             }
           };
           entry.push(addother);
@@ -77,9 +79,11 @@
 
           entry.forEach(function(item, index) {
             var row = table.insertRow();
-            var cell0 = row.insertCell(0);
-            var cell1 = row.insertCell(1);
-            var cell2 = row.insertCell(2);
+            var cell = row.insertCell(0);
+            cell.innerHTML = '<image height="100%" src="' + item.gsx$image.$t + '"" />';
+            var cell0 = row.insertCell(1);
+            var cell1 = row.insertCell(2);
+            var cell2 = row.insertCell(3);
             cell0.innerHTML = item.gsx$drivers.$t;
 
             //add to main array
@@ -117,7 +121,7 @@
           });
 
           var tenthrow = document.getElementsByTagName("TR")[10];
-          tenthrow.innerHTML = "<td colspan='3'><hr></td>";
+          tenthrow.innerHTML = "<td colspan='4'><hr></td>";
 
         });
       });
