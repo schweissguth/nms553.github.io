@@ -28,12 +28,12 @@
     <table id="table" border="0"></table>
 
     <script>
-    //variables
-    var form = document.getElementById("form");
-    var table = document.getElementById("table");
-    var newarray0 = [];
-    var toptenarray = [];
-    var players = ["Schriewer", "Mike", "Moore", "Dave", "Curt", "Tim", "Dean", "Evan", "Poepsel", "Nick", "(test)"];
+      //variables
+      var form = document.getElementById("form");
+      var table = document.getElementById("table");
+      var newarray0 = [];
+      var toptenarray = [];
+      var players = ["Schriewer", "Mike", "Moore", "Dave", "Curt", "Tim", "Dean", "Evan", "Poepsel", "Nick", "(test)"];
 
       function validate(playr, indx) {
         document.getElementsByName("index")[0].value = indx;
@@ -49,15 +49,15 @@
         document.getElementsByName("type")[0].value = "trashtalk";
         document.getElementById("form").submit();
       }
-      
+
       function dickTrickle(othervalue) {
-        document.getElementsByName("index")[0].value = entry.length+3;
+        document.getElementsByName("index")[0].value = entry.length + 2;
         document.getElementsByName("value")[0].value = othervalue;
         document.getElementsByName("type")[0].value = "other";
         document.getElementById("form").submit();
       }
 
-      
+
 
       $(function() {
         var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1CAyAdtlGMJVQVzqKae8Qk3kUUT4WsrxoDYLBu3w3GbY/2/public/full?alt=json';
@@ -104,14 +104,13 @@
           });
           var tenthrow = document.getElementsByTagName("TR")[10];
           tenthrow.innerHTML = "<td colspan='3'><hr></td>";
-          
+
           //creat other driver input
 
-          
+
         });
 
       });
-
 
     </script>
 
