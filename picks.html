@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="NASCAR fantasy website Stupid-Fast.com">
     <meta name="keywords" content="NASCAR">
+    <style>
+      td {
+        height: 30px;
+      }
+
+    </style>
   </head>
 
   <body>
@@ -38,6 +44,7 @@
       function validate(playr, indx) {
         document.getElementsByName("index")[0].value = indx;
         document.getElementsByName("value")[0].value = playr;
+        document.getElementsByName("type")[0].value = "";
         var tt = document.getElementsByClassName(indx)[0];
         tt.style.display = "";
         document.getElementById("form").submit();
@@ -50,8 +57,8 @@
         document.getElementById("form").submit();
       }
 
-      function dickTrickle(othervalue) {
-        document.getElementsByName("index")[0].value = entry.length + 2;
+      function dickTrickle(othervalue, otherindex) {
+        document.getElementsByName("index")[0].value = entry.length+1;
         document.getElementsByName("value")[0].value = othervalue;
         document.getElementsByName("type")[0].value = "other";
         document.getElementById("form").submit();
@@ -68,7 +75,6 @@
           entry.forEach(function(item, index) {
             var row = table.insertRow();
             var cell0 = row.insertCell(0);
-            cell0.style.height = "30px";
             var cell1 = row.insertCell(1);
             var cell2 = row.insertCell(2);
             cell0.innerHTML = item.gsx$drivers.$t;
@@ -80,7 +86,6 @@
             select.id = index + 2;
             var option0 = document.createElement("option");
             select.appendChild(option0);
-            select.name = item.gsx$drivers.$t;
             select.setAttribute("onchange", "validate(this.value, this.id)");
             //create options
             players.forEach(function(item1, index1) {
@@ -102,6 +107,7 @@
             trashtalk.setAttribute("onchange", "trashtalk(this.className, this.value)")
             cell2.appendChild(trashtalk);
           });
+
           var tenthrow = document.getElementsByTagName("TR")[10];
           tenthrow.innerHTML = "<td colspan='3'><hr></td>";
 
