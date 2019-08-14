@@ -7,14 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="NASCAR fantasy website Stupid-Fast.com">
     <meta name="keywords" content="NASCAR">
-    <style>td {height: 30px;}</style>
+    <style>
+      td {
+        height: 30px;
+      }
+
+    </style>
   </head>
 
   <body>
     <a href="https://www.stupid-fast.com/"><img src="https://lh5.googleusercontent.com/VHx2YhJbF08rhdVwHzCO8EzWDAGaFsithJ4PONeGeKZ8cAu8iJL8f3Ne_WZDGEcHIYOmF-FIJcdYbg7XWHGDUbU_p18_rAfTSGeMuSk1kji9TNTwviXW9GGugjlQbcX8RV8"></a><br><br>
-    
-    <font color="red">I made some adjustments to this page. Any issues let me know!</font><br>
-    <br><br>
+
+    <font color="red">I made some adjustments to this page. Any issues let me know!</font><br><br><br>
 
     <form id="form" name="myForm" action="https://script.google.com/macros/s/AKfycbwhlpFw2h-7mKHBabnRfgMf4k0qepj7KgVKyI6dTvsVrwiYbL4/exec" method="get" target="dummyframe">
       <input type="hidden" name="index" value="">
@@ -56,8 +60,7 @@
         document.getElementById("form").submit();
       }
 
-
-
+      //Data feed pull from Sheets
       $(function() {
         var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1CAyAdtlGMJVQVzqKae8Qk3kUUT4WsrxoDYLBu3w3GbY/2/public/full?alt=json';
         $.getJSON(sheetUrl, function(data) {
@@ -81,15 +84,18 @@
             var cell1 = row.insertCell(1);
             var cell2 = row.insertCell(2);
             cell0.innerHTML = item.gsx$drivers.$t;
+
             //add to main array
             newarray0[index] = item.gsx$players.$t;
             toptenarray[index] = item.gsx$players.$t;
+
             //create select dropdown
             var select = document.createElement("select");
             select.id = index + 2;
             var option0 = document.createElement("option");
             select.appendChild(option0);
             select.setAttribute("onchange", "validate(this.value, this.id)");
+
             //create options
             players.forEach(function(item1, index1) {
               var option1 = document.createElement("option");
@@ -97,9 +103,11 @@
               if (item.gsx$players.$t == item1) {
                 option1.selected = "true";
               }
+
               //add to dropdown menu  
               select.appendChild(option1);
             });
+
             //add dropdown to second column
             cell1.appendChild(select);
             //create Trashtalk inpuit field
@@ -114,18 +122,13 @@
           var tenthrow = document.getElementsByTagName("TR")[10];
           tenthrow.innerHTML = "<td colspan='3'><hr></td>";
 
-          //creat other driver input
-
-
         });
-
       });
 
     </script>
 
-    <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display:none;"></iframe>
-    <br>
-    <a target="_blank" href="https://script.google.com/d/165R7viTBypkyTYNavCDaflQHuV49C6e9lv4RaTODgV2jL3aEwh9bZQsT/edit?usp=sharing">Admin</a>
+    <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="display:none;"></iframe><br>
+    <a target="_blank" href="https://script.google.com/d/165R7viTBypkyTYNavCDaflQHuV49C6e9lv4RaTODgV2jL3aEwh9bZQsT/edit?usp=sharing">Admin</a><br>
     <a target="_blank" href="https://github.com/nms553/nms553.github.io/edit/master/picks.html">GH</a>
 
   </body>
