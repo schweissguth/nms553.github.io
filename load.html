@@ -11,7 +11,7 @@
 
   </head>
 
-  <body>
+<body>
 
     <table style="display: none;" id="table" border="1"></table>
     
@@ -25,18 +25,18 @@
 			<img src="wbs.png"></a></td>
 			<td style="width: 171px">Waterloo Boy<br><br>
 			Celebrating 100 <br>years of John Deere <br>tractor production</td>
-			<td style="width: 433px" id="wb">&nbsp;</td>
+			<td style="width: 433px" id="wb"></td>
 		</tr>
 			<tr>
 			<td style="width: 148px">#5<br>
-			Precision Elite<br>&nbsp;<br>#64435<br>2017<br>1/16 scale</td>
+			Precision Elite<br><br>#64435<br>2017<br>1/16 scale</td>
 			<td style="width: 181px">
 			<a href="http://www.keepingitgreen.com/sbi/pc/deere/4320/4320.html">
 			<img src="4320.jpg"></a></td>
 			<td style="width: 171px">John Deere 
 			4320<br><br>Fifth release in the Precision Elite Series</td>
 			
-			<td style="width: 433px" id="4320">&nbsp;</td>
+			<td style="width: 433px" id="64435"></td>
 		</tr>
 		<tr>
 			<td style="width: 148px">Special Edition<br>25th 
@@ -47,7 +47,7 @@
 			<td style="width: 171px">John Deere 7800 MFWD<br>
 			<br>Gold Chrome plated<br>Special Edition celebrating the 25th 
 			anniversary of the Ertl Precision line</td>
-			<td style="width: 433px" id="7800g">&nbsp;</td>
+			<td style="width: 433px" id="45507N"></td>
 		</tr>
 		<tr>
 			<td style="width: 148px">#4<br>
@@ -58,7 +58,7 @@
 			<td style="width: 171px">John Deere 
 			7800 MFWD<br><br><font color="#000000">Fourth release in the 
 			Precision Elite Series</font></td>
-			<td style="width: 433px" id="7800">&nbsp;</td>
+			<td style="width: 433px" id="45507"></td>
 		</tr>
 		<tr>
 			<td style="width: 148px">#3<br>
@@ -69,20 +69,21 @@
 			<td style="width: 171px">John Deere 
 			Model 4840<br><br><font color="#000000">Third release in the 
 			Precision Elite Series</font></td>
-			<td style="width: 433px" id="4840">&nbsp;</td>
+			<td style="width: 433px" id="45464"></td>
 		</tr>
 		<tr>
 			<td style="width: 148px">#2<br>
-			Precision Elite<br>&nbsp;<br>#45358<br>2013<br><br>1/16 scale</td>
+			Precision Elite<br><br>#45358<br>2013<br><br>1/16 scale</td>
 			<td style="width: 181px">
 			<a href="http://www.keepingitgreen.com/sbi/pc/deere/6030/6030.html" target="_blank">
 			<img src="6030.jpg"></a></td>
 			<td style="width: 171px">John Deere 
 			Model 6030<br><br>Second<font color="#000000"> release in the 
 			Precision Elite Series</font></td>
-			</td>
-			<td style="width: 433px" id="6030">&nbsp;</td>
+			
+			<td style="width: 433px" id="45358"></td>
 		</tr>
+
 
    
 
@@ -113,7 +114,7 @@
          try {
          var getid = document.getElementById(td[i].innerText)
          console.log(getid)
-         getid.innerHTML += '<tr><td>' + td[i+1].innerHTML + '</td></tr>';
+         getid.innerHTML += '<table width="100%" border="1" style="border-collapse: collapse;"><tr><td>' + td[i+1].innerHTML + '</td></tr></table>';
          }
          catch(err) {
          
@@ -122,7 +123,7 @@
           }}})
        
         
-      
+      document.getElementById("style").innerHTML = "body {background-color: 66ff66 !important;}"
 
     </script>
   </body>
