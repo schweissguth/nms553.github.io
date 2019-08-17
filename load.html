@@ -1,53 +1,130 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>load demo</title>
-  <style>
-  body {
-    font-size: 12px;
-    font-family: Arial;
-  }
+<!DOCTYPE html>
+<html>
 
-  </style>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body bgcolor="#66FF66">
- 
-<b>Successful Response (should be blank):</b>
-<div style="display:none;" id="success"></div>
-<b>Error Response:</b>
-<div id="error"></div>
-<div id="poop">
-johnson
-</div>
- 
-<script>
-$( "#success" ).load("https://docs.google.com/spreadsheets/d/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/htmlembed?single=true&gid=0&range=a1:g66&widget=false&chrome=false&gridlines=false", function( response, status, xhr ) {
-var poop = response.substring(response.indexOf('<tbody'), response.indexOf('</tbody>')+7);
-//poop = poop.replace(/<th/g, "<td");
-//poop = poop.replace(/<\/th>/g, "</td>");
-document.getElementById("poop").innerHTML = '<table border="1"' + poop + '</table>';
-//console.log(poop);
-document.getElementsByTagName("table")[0].setAttribute("border","1");
-var cars = document.getElementsByTagName("TH");
-var i;
-for (i = 0; i < cars.length; i++) { 
-  cars[i].removeAttribute("style");
-  cars[i].setAttribute("style", "display:none;");
-}
-  if ( status == "error" ) {
-    var msg = "Sorry but there was an error: ";
-    $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
-  }
-});
-</script>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script defer>
+    <style id="style">
 
+    </style>
 
-</script>
+  </head>
 
- 
-</body>
+  <body>
+
+    <table style="display: none;" id="table" border="1"></table>
+    
+    <br>
+    
+    <table border="1" id="table2">
+			<tr>
+			<td style="width: 148px">kljlkj</td>
+			<td style="width: 181px">
+			<a href="http://www.keepingitgreen.com/sbi/pc/deere/wb.png">
+			<img src="wbs.png"></a></td>
+			<td style="width: 171px">Waterloo Boy<br><br>
+			Celebrating 100 <br>years of John Deere <br>tractor production</td>
+			<td style="width: 433px" id="wb">&nbsp;</td>
+		</tr>
+			<tr>
+			<td style="width: 148px">#5<br>
+			Precision Elite<br>&nbsp;<br>#64435<br>2017<br>1/16 scale</td>
+			<td style="width: 181px">
+			<a href="http://www.keepingitgreen.com/sbi/pc/deere/4320/4320.html">
+			<img src="4320.jpg"></a></td>
+			<td style="width: 171px">John Deere 
+			4320<br><br>Fifth release in the Precision Elite Series</td>
+			
+			<td style="width: 433px" id="4320">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 148px">Special Edition<br>25th 
+			Precision Anniversary<br>Only 1000 made!!<br><br>2016<br>1/16 scale</td>
+			<td style="width: 181px">
+			<a href="http://www.keepingitgreen.com/sbi/pc/deere/gold7800/g.html">
+			<img src="7800gold.jpg"></a></td>
+			<td style="width: 171px">John Deere 7800 MFWD<br>
+			<br>Gold Chrome plated<br>Special Edition celebrating the 25th 
+			anniversary of the Ertl Precision line</td>
+			<td style="width: 433px" id="7800g">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 148px">#4<br>
+			Precision Elite<br><br>#45507<br>2015<br>1/16 scale</td>
+			<td style="width: 181px">
+			<a href="http://www.keepingitgreen.com/sbi/pc/deere/7800/7800.html" target="_blank">
+			<img src="7800.jpg"></a></td>
+			<td style="width: 171px">John Deere 
+			7800 MFWD<br><br><font color="#000000">Fourth release in the 
+			Precision Elite Series</font></td>
+			<td style="width: 433px" id="7800">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 148px">#3<br>
+			Precision Elite <br><br>#45464<br>2014<br>1/16 scale</td>
+			<td style="width: 181px">
+			<a href="http://www.keepingitgreen.com/sbi/pc/deere/4840/4840.html" target="_blank">
+			<img src="4840.jpg"></a></td>
+			<td style="width: 171px">John Deere 
+			Model 4840<br><br><font color="#000000">Third release in the 
+			Precision Elite Series</font></td>
+			<td style="width: 433px" id="4840">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 148px">#2<br>
+			Precision Elite<br>&nbsp;<br>#45358<br>2013<br><br>1/16 scale</td>
+			<td style="width: 181px">
+			<a href="http://www.keepingitgreen.com/sbi/pc/deere/6030/6030.html" target="_blank">
+			<img src="6030.jpg"></a></td>
+			<td style="width: 171px">John Deere 
+			Model 6030<br><br>Second<font color="#000000"> release in the 
+			Precision Elite Series</font></td>
+			</td>
+			<td style="width: 433px" id="6030">&nbsp;</td>
+		</tr>
+
+   
+
+    </table>
+    <script>
+      $.ajax({
+        url: 'https://docs.google.com/spreadsheets/d/16ASTzJs_relHeFrAUHYA3qA9yEjQ73WX85S0ruWXA4M/htmlembed?single=true&gid=1706190567&range=a1:f66&widget=false&chrome=false',
+        success: function(data) {
+     //    console.log(data);
+          
+          var css = document.getElementById("style");
+          var split1 = data.split("</style>")
+          var replace1 = split1[0].replace(/.ritz .waffle/g, "")
+          var split2 = replace1.split("<style")
+          css.innerhtml = split2[1]
+       //  console.log(split2[1])
+         
+         var table = document.getElementById("table");
+         var split3 = split1[1].split("</table>")
+         var split4 = split3[0].split("<table")
+         table.innerHTML = '<table' + split4[1]
+         
+         var td = document.getElementsByTagName("TD");
+         var i;
+         var table2 = document.getElementById("table2")
+         
+         for (i = 0; i < td.length; i++) {
+         try {
+         var getid = document.getElementById(td[i].innerText)
+         console.log(getid)
+         getid.innerHTML += '<tr><td>' + td[i+1].innerHTML + '</td></tr>';
+         }
+         catch(err) {
+         
+         }
+          
+          }}})
+       
+        
+      
+
+    </script>
+  </body>
+
 </html>
