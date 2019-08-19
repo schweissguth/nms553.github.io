@@ -568,9 +568,11 @@
     </script>
     
     <script>
-    var getth = document.getElementsByTagName("TH")
-    var getimg = document.getElementsByTagName("DIV")
-    var geta = document.getElementsByTagName("A")
+    var x = document.getElementsByTagName("TABLE")[0]
+    var getth = x.getElementsByTagName("TH")
+    var getdiv = x.getElementsByTagName("DIV")
+    var gettd = x.getElementsByTagName("TD")
+    var getimg = x.getElementsByTagName("IMG")
     
     var i;
     var j;
@@ -581,13 +583,18 @@
     //getth[i].innerHTML = "";
     }
     
-    for (j = 0; j < getimg.length; j++) {
-    getimg[j].removeAttribute("style")
+    for (j = 0; j < getdiv.length; j++) {
+    getdiv[j].removeAttribute("style")
 
     }
     
-    for (k = 0; k < geta.length; k++) {
-    geta[k].removeAttribute("target")
+    for (k = 0; k < gettd.length; k++) {
+    gettd[k].style = "background-color: #66ff66;"
+
+    }
+    
+    for (l = 0; l < getimg.length; l++) {
+    getimg[l].parentElement.style = "background-color: white";
 
     }
     
