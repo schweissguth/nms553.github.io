@@ -777,7 +777,7 @@
               var entry = data.feed.entry;
               console.log(entry);
               entry.forEach(function(item, i) {
-              
+              try {
               var gettd = document.getElementById(item.gsx$id.$t);
               var newtable = document.createElement("TABLE");
               
@@ -797,7 +797,7 @@
               paypal.method = "post";
               paypal.target = "paypal";
               
-              try {
+              
               var alt = document.createElement("INPUT");
               alt.alt = "Make payments with PayPal - it's fast, free and secure!";
               alt.border = "0";
