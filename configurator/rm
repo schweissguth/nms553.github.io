@@ -1,0 +1,133 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .div0 {
+      margin: auto;
+      text-align: center;
+    }
+
+    .div1 {
+      text-align: left;
+      display: inline-block;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="div0">
+    <div class="div1">
+
+
+
+      <img src="https://schneider-electric.box.com/shared/static/ybqpmzjq4zrtt25az7pttxsgp9h14wis.png">
+      <br><br>
+
+      <select onchange="region(this.value)">
+        <option value="gsx$blank" disabled selected>Region</option>
+        <option value="gsx$europe">Europe</option>
+        <option value="gsx$nam">NAM</option>;
+        <option value="gsx$intl">International</option>;
+        <option value="gsx$china">China</option>;
+      </select><br><br>
+
+      <div id="div" style="display: none;">
+        Options:<br>
+        <input type="checkbox" onchange="(function(){$('#pump').toggle();}) ();" checked>Condensate Pump<br>
+        <input type="checkbox" onchange="(function(){$('#display').toggle();}) ();" checked>User display<br>
+        <input type="checkbox" onchange="(function(){$('#winter').toggle();}) ();">Winter kit (range: -20C to -40C)<br>
+        <input type="checkbox" onchange="(function(){$('#stack').toggle();}) ();">Stacking kit (NAM only)<br>
+
+        <br>
+
+        <select onchange="pipe(this.value)">
+          <option value="top" selected>Top pipe kit</option>
+          <option value="short">Bottom pipe kit (for above raised floor)</option>
+          <option value="long">Long bottom piping kit (for below raised floor)</option>;
+          <option value="0">(none)</option>;
+        </select><br><br>
+      </div>
+    </div>
+    <center>
+      <table id="table">
+        <tr>
+          <th>Qty</th>
+          <th>SKU</th>
+          <th>Description</th>
+        </tr>
+      </table>
+
+      <br>
+      <a href="https://github.com/schweissguth/configurator/edit/master/index.html">admin</a>
+    </center>
+
+
+  </div>
+
+  <script>
+    var dater = [];
+    $(function() {
+      var sheetUrl = 'https://spreadsheets.google.com/feeds/list/13H4ogDZQ7H_61mJlwYhXhJom4wAyqbdfiC3mzSzLrQk/1/public/full?alt=json';
+      $.getJSON(sheetUrl, function(data) {
+        var entry = data.feed.entry;
+        dater = entry;
+        console.log(entry);
+        var table = document.getElementById("table")
+
+
+        entry.forEach(function(item, index) {
+          var newrow = table.insertRow();
+          newrow.id = item.gsx$short.$t;
+
+
+          var cell1 = newrow.insertCell(0);
+          var cell2 = newrow.insertCell(1);
+          var cell3 = newrow.insertCell(2);
+          cell1.innerText = "1"
+
+          cell2.id = index;
+          cell3.className = index;
+        });
+
+        document.getElementById("long").setAttribute("style", "display: none;");
+        document.getElementById("short").setAttribute("style", "display: none;");
+        document.getElementById("winter").setAttribute("style", "display: none;");
+        document.getElementById("stack").setAttribute("style", "display: none;");
+
+      });
+    });
+
+    function region(value) {
+      $('#div').show();
+      dater.forEach(function(item, index) {
+        var indx = document.getElementById(index);
+        indx.innerHTML = item[value]['$t'];
+        desc = value + 'desc';
+        document.getElementsByClassName(index)[0].innerHTML = item[desc]['$t'];
+      });
+
+    }
+
+    function pipe(value) {
+      document.getElementById("top").setAttribute("style", "display: none;");
+      document.getElementById("short").setAttribute("style", "display: none;");
+      document.getElementById("long").setAttribute("style", "display: none;");
+      document.getElementById(value).setAttribute("style", "");
+
+    }
+
+  </script>
+
+</body>
